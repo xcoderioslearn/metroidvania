@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://03bxvik3sqw5"]
+
+[ext_resource type="Script" uid="uid://dv8mw0675ovkn" path="res://scenes/bullets/explosion.gd" id="1_2ydpy"]
+[ext_resource type="Texture2D" uid="uid://bav7n447bnsa5" path="res://graphics/fire/explosion.png" id="1_gsvrn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ydpy"]
+radius = 19.0
+
+[sub_resource type="Animation" id="Animation_npy6q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_aiuqa"]
+resource_name = "explode"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.40000004, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hurt_target"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uimni"]
+_data = {
+&"RESET": SubResource("Animation_npy6q"),
+&"explode": SubResource("Animation_aiuqa")
+}
+
+[node name="Explosion" type="Area2D" unique_id=1672073434]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("1_2ydpy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=505119889]
+texture = ExtResource("1_gsvrn")
+hframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1991479397]
+shape = SubResource("CircleShape2D_2ydpy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=91211217]
+libraries/ = SubResource("AnimationLibrary_uimni")
+autoplay = &"explode"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

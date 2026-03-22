@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://drqewml4qy4h1"]
+
+[ext_resource type="Script" uid="uid://b8bdf0t3mhimm" path="res://scenes/ui/ui.gd" id="1_f5cxw"]
+[ext_resource type="Texture2D" uid="uid://bh0awhb02my2t" path="res://graphics/ui/bar_main.png" id="1_u7n8c"]
+
+[node name="UI" type="CanvasLayer" unique_id=1860267423]
+script = ExtResource("1_f5cxw")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1066357835]
+custom_minimum_size = Vector2(240, 20)
+anchors_preset = -1
+offset_left = 20.0
+offset_top = 20.0
+max_value = 5.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_u7n8c")
+texture_progress = ExtResource("1_u7n8c")
+tint_under = Color(0.22130162, 0.22130162, 0.22130159, 1)
+tint_progress = Color(1, 0, 0, 1)

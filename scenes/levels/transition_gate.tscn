@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d14lk0wujtlhs"]
+
+[ext_resource type="Script" uid="uid://c4mtq7xl66gnd" path="res://scenes/levels/transition_gate.gd" id="1_n08rl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7drs8"]
+size = Vector2(40, 60)
+
+[node name="TransitionGate" type="Area2D" unique_id=1689891337]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_n08rl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1749434343]
+shape = SubResource("RectangleShape2D_7drs8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
