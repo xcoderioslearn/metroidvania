@@ -5,7 +5,6 @@
 [ext_resource type="Shader" uid="uid://cwiab7gjlrsvv" path="res://shaders/flash.tres" id="2_hhw7h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lkc6y"]
-resource_local_to_scene = true
 shader = ExtResource("2_hhw7h")
 shader_parameter/Color = Color(1, 1, 1, 1)
 shader_parameter/Progress = 0.0
@@ -55,7 +54,7 @@ radius = 91.04944
 [sub_resource type="CircleShape2D" id="CircleShape2D_hhw7h"]
 radius = 13.0
 
-[node name="EnemyDrone" type="CharacterBody2D" unique_id=1374249857 groups=["Drones"]]
+[node name="EnemyDrone" type="CharacterBody2D" unique_id=1374249857 groups=["Drones", "Enemies"]]
 collision_layer = 4
 collision_mask = 11
 script = ExtResource("1_8ap4l")

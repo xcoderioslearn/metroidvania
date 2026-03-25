@@ -2,7 +2,7 @@ extends Node
 
 enum Gun {SINGLE, SHOTGUN, ROCKET}
 enum Level {SUBWAY, SKY, SUBWAY_2}
-enum Enemy {DRONE}
+enum Enemy {DRONE,SOLDIER}
 const LEVEL_PATHS = {
 	Level.SUBWAY : "res://scenes/levels/subway.tscn",
 	Level.SKY : "res://scenes/levels/sky.tscn",
