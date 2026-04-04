@@ -6,8 +6,8 @@ var type : Data.Gun
 const OFFSET = 16
 const TEXTURE = {
 	Data.Gun.SINGLE: preload("res://graphics/fire/default.png"),
-	Data.Gun.ROCKET: preload("res://graphics/fire/large.png"),	
-}
+	Data.Gun.ROCKET: preload("res://graphics/fire/large.png"),
+	}
 signal explode(pos: Vector2,)
 
 func _ready() -> void:
